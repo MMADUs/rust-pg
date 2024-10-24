@@ -6,6 +6,7 @@ use std::collections::HashSet;
 use std::collections::BTreeSet;
 
 mod generic;
+mod collections;
 
 pub trait Person {
     fn say_identity(&self);

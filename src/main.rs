@@ -2,6 +2,8 @@ use std::collections::VecDeque;
 use std::collections::LinkedList;
 use std::collections::BTreeMap;
 use std::collections::BinaryHeap;
+use std::collections::HashSet;
+use std::collections::BTreeSet;
 
 mod generic;
 
@@ -70,6 +72,27 @@ fn main() {
     
     for i in binary {    
         println!("value: {}", i);
+    }
+
+    let mut hashset = HashSet::new();
+    hashset.insert(5);
+    hashset.insert(10);
+    hashset.insert(7);
+    hashset.insert(8);
+
+    for i in hashset {
+        println!("hashset value: {}", i);
+    }
+
+    let mut btreeset = BTreeSet::new();
+    btreeset.insert(10);
+    btreeset.insert(20);
+    btreeset.insert(5);
+    btreeset.insert(8);
+    btreeset.insert(9);
+
+    for i in btreeset {
+        println!("btreeset value: {}", i);
     }
 }
 

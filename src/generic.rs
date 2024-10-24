@@ -1,7 +1,7 @@
 // generic in struct
 pub struct DynamicType<T> {
-  pub name: String,
-  pub any: T,
+    pub name: String,
+    pub any: T,
 }
 
 // generic in struct impl
@@ -9,21 +9,21 @@ impl<T> DynamicType<T> {
     pub fn new(name: String, any: T) -> Self {
         DynamicType { name, any }
     }
-    
+
     pub fn get_name(&self) -> &String {
-      &self.name
+        &self.name
     }
 
     pub fn get_any(&self) -> &T {
-      &self.any
+        &self.any
     }
 }
 
 // multiple generic
 pub struct MultiType<T, Y, K> {
-  pub t_type: T,
-  pub y_type: Y,
-  pub k_type: K,
+    pub t_type: T,
+    pub y_type: Y,
+    pub k_type: K,
 }
 
 // trait with generic
@@ -33,28 +33,32 @@ pub trait GenericTrait<T, Y, K> {
     fn get_y(&self) -> &Y;
     fn get_k(&self) -> &K;
     fn get_dynamic<F>(&self, value: F) -> F;
-}  
-  
+}
+
 impl<T, Y, K> GenericTrait<T, Y, K> for MultiType<T, Y, K> {
-  fn new(t_type: T, y_type: Y, k_type: K) -> Self {
-    MultiType { t_type, y_type, k_type }
-  }
+    fn new(t_type: T, y_type: Y, k_type: K) -> Self {
+        MultiType {
+            t_type,
+            y_type,
+            k_type,
+        }
+    }
 
-  fn get_t(&self) -> &T {
-    &self.t_type
-  }
+    fn get_t(&self) -> &T {
+        &self.t_type
+    }
 
-  fn get_y(&self) -> &Y {
-    &self.y_type
-  }
+    fn get_y(&self) -> &Y {
+        &self.y_type
+    }
 
-  fn get_k(&self) -> &K {
-    &self.k_type
-  }
+    fn get_k(&self) -> &K {
+        &self.k_type
+    }
 
-  fn get_dynamic<F>(&self, value: F) -> F {
-    value
-  }
+    fn get_dynamic<F>(&self, value: F) -> F {
+        value
+    }
 }
 
 // cargo test dynamic::test_dynamic
